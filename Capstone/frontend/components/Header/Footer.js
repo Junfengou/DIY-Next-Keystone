@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const FooterStyles = styled.div`
     color: var(--offWhite);
-    background: var(--black);
+    background: var(--gray);
     height: 10rem;
     display: flex;
     justify-content: center;

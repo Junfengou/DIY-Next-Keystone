@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import PropTypes from "prop-types";
 import Header from "./Header/Header"
 import styled, { createGlobalStyle } from "styled-components";
 import Footer from './Header/Footer';
+import Loader from './Loader';
 
 const GlobalStyles = createGlobalStyle`
 
@@ -72,12 +73,24 @@ const InnerStyles = styled.div`
 `;
 
 function Page({ children }) {
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(true)
+        }, 3000)
+    }, [])
 	return (
 		<>
 			<GlobalStyles />
-            <Header />
-			<InnerStyles>{children}</InnerStyles>
-            <Footer />
+            {loading === false ? <Loader /> : 
+                <>
+                    <Header />
+                    <InnerStyles>{children}</InnerStyles>
+                    <Footer />
+                </>
+            }
+            
 		</>
 	);
 }

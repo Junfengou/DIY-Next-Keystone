@@ -74,7 +74,7 @@ const AccordionFormStyles = styled.form`
     .panel-open {
         overflow: hidden;
         background:#e0e0e0;
-        padding: 1rem;
+        padding: 1.5rem;
         margin-bottom: 1rem;
         box-sizing: border-box;
         opacity: 1;
