@@ -70,11 +70,10 @@ const CardStyles = styled.div`
 
     .title {
         grid-area: title;
-        width: 80%;
+        width: 50%;
         align-self: flex-end;
         margin-bottom: 2rem;
         margin-left: 2rem;
-
         h1 {
             font-size: 2rem;
         }
@@ -82,7 +81,7 @@ const CardStyles = styled.div`
 
     .info {
         grid-area: info;
-        width: 80%;
+        width: 70%;
         margin-left: 2rem;
     }
 
@@ -113,6 +112,7 @@ const CardStyles = styled.div`
             text-align: center;
             font-size: 1.2rem;
             margin-left: 0;
+            width: 50%;
         }
     }
 `
@@ -142,7 +142,7 @@ const CardStylesReverse = styled.div`
 
     .title {
         grid-area: title;
-        width: 80%;
+        width: 50%;
         align-self: flex-end;
         margin-bottom: 2rem;
         margin-left: 7rem;
@@ -154,7 +154,7 @@ const CardStylesReverse = styled.div`
 
     .info {
         grid-area: info;
-        width: 80%;
+        width: 70%;
         margin-left: 7rem;
     }
 
@@ -186,6 +186,7 @@ const CardStylesReverse = styled.div`
             text-align: center;
             font-size: 1.2rem;
             margin-left: 0;
+            width: 50%;
         }
     }
 `

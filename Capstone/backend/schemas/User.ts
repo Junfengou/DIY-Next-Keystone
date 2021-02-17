@@ -11,10 +11,10 @@ export const User = list({
         address: text({isRequired: true}),
         city: text({isRequired: true}),
         state: text({isRequired: true}),
-        zipcode: integer({isRequired: true}),
+        zipcode: integer(),
         country: text({isRequired: true}),
-        phone: integer({isRequired: true}),
-        drlic: text({isRequired: true}),
+        phone: integer(),
+        driverLic: text({isRequired: true}),
         payment: select({
             options: [
               { label: 'Credit Card', value: 'Credit Card' },
@@ -26,6 +26,6 @@ export const User = list({
             //   createView: { fieldMode: 'hidden' },
             },
           }),
-        additionalInfo: text({ isRequired: true }), 
+        additionalInfo: text(), 
     }
 })

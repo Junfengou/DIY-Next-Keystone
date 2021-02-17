@@ -1,9 +1,11 @@
 import React from 'react'
+import Products from '../components/Reserve/Products';
+
 
 function reserve() {
     return (
         <div>
-            <p>Reserve page</p>
+            <Products />
         </div>
     )
 }
