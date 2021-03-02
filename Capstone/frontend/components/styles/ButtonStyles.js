@@ -10,6 +10,7 @@ const ButtonStyles = styled.div`
     background: var(--orange);
     color: black;
     border-radius: 1rem;
+    cursor: pointer;
 
     @media(max-width: 700px)
     {

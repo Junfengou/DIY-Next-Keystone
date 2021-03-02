@@ -12,20 +12,8 @@ export const User = list({
         city: text({isRequired: true}),
         state: text({isRequired: true}),
         zipcode: integer(),
-        country: text({isRequired: true}),
         phone: integer(),
         driverLic: text({isRequired: true}),
-        payment: select({
-            options: [
-              { label: 'Credit Card', value: 'Credit Card' },
-              { label: 'E-Check', value: 'E-Check' },
-            ],
-            defaultValue: 'Credit Card',
-            ui: {
-              displayMode: 'segmented-control',
-            //   createView: { fieldMode: 'hidden' },
-            },
-          }),
         additionalInfo: text(), 
     }
 })
