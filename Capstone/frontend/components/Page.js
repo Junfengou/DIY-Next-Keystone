@@ -50,6 +50,7 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
         font-size: 1.5rem;
         line-height: 2;
+        overflow-x: hidden;
     }
     a {
         text-decoration: none;
@@ -80,6 +81,7 @@ function Page({ children }) {
 			setLoading(true);
 		}, 3000);
 	}, []);
+
 	return (
 		<>
 			<GlobalStyles />
@@ -107,3 +109,16 @@ Page.protoType = {
 	]),
     */
 };
+
+/*
+{loading === false ? (
+				<Loader />
+			) : (
+				<>
+					<Header />
+					<InnerStyles>{children}</InnerStyles>
+					<Footer />
+				</>
+			)}
+
+*/

@@ -1,11 +1,21 @@
 import React from "react";
 import Form from "../styles/Form";
 import useForm from "../../lib/useForm";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Link from "next/link";
 import gql from "graphql-tag";
 import Error from "../ErrorMessage";
 import { useMutation } from "@apollo/client";
+
+const loading = keyframes`
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 100% 100%;
+  }
+`;
 
 const SignUpStyles = styled.div`
 	width: 45%;
@@ -27,11 +37,32 @@ const SignUpStyles = styled.div`
 		fieldset {
 			display: flex;
 			flex-direction: column;
-		}
+			&[disabled] {
+				opacity: 0.5;
+			}
+			&::before {
+				height: 10px;
+				content: "";
+				display: block;
+				background-image: linear-gradient(
+					to right,
+					#ff8177 0%,
+					#ff867a 0%,
+					#ff8c7f 21%,
+					#f99185 52%,
+					#cf556c 78%,
+					#b12a5b 100%
+				);
+				&[aria-busy="true"]::before {
+					background-size: 50% auto;
+					animation: ${loading} 0.5s linear infinite;
+				}
+			}
 
-		input,
-		select {
-			border: 2px solid rgba(0, 0, 0, 0.54);
+			input,
+			select {
+				border: 2px solid rgba(0, 0, 0, 0.54);
+			}
 		}
 	}
 
@@ -48,6 +79,10 @@ const SignUpStyles = styled.div`
 			padding-right: 5rem;
 			margin-right: 1rem;
 		}
+	}
+
+	span {
+		color: var(--orange);
 	}
 
 	@media (max-width: 1100px) {
@@ -100,6 +135,7 @@ const SIGNUP_MUTATION = gql`
 		) {
 			id
 			email
+			username
 		}
 	}
 `;
@@ -117,15 +153,17 @@ function SignUp() {
 		driverLic: "",
 	});
 
-	const [signup, { loading, data, error }] = useMutation(SIGNUP_MUTATION, {
+	const [createUser, { loading, data, error }] = useMutation(SIGNUP_MUTATION, {
 		variables: input,
 	});
 	async function handleSubmit(e) {
 		e.preventDefault();
 
-		await signup();
+		await createUser().catch(console.error);
 		resetForm();
 	}
+
+	console.log({ data });
 
 	return (
 		<SignUpStyles>
@@ -134,6 +172,13 @@ function SignUp() {
 				<form method="POST" onSubmit={handleSubmit}>
 					<Error error={error} />
 					<fieldset>
+						{data?.createUser && (
+							<p>
+								Sign up successful! Welcome -{" "}
+								<span>{data.createUser.username}</span> - Please sign in to
+								access your account!
+							</p>
+						)}
 						<label>username</label>
 						<input
 							type="text"

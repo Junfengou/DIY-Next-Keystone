@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 import ButtonStyles from "../styles/ButtonStyles";
@@ -74,7 +75,9 @@ function Banner() {
 					<h3>
 						Honest <span> - </span> Convenient <span> - </span> Secure
 					</h3>
-					<button>Learn more</button>
+					<Link href="/reserve">
+						<button>Reserve</button>
+					</Link>
 				</BannerStyles>
 			</div>
 		</>

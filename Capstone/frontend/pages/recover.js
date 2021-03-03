@@ -1,5 +1,4 @@
 import React from "react";
-import PasswordReset from "../components/auth/PasswordReset";
 import SignUp from "../components/auth/SignUp";
 import styled from "styled-components";
 

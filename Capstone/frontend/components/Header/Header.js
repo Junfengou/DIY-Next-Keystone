@@ -5,6 +5,8 @@ import Nav from "./Nav";
 import Link from "next/link";
 import useUser from "../auth/User";
 import SignOut from "../auth/SignOut";
+import CartButton from "../Cart/CartButton";
+import Cart from "../Cart/Cart";
 
 const HeaderStyles = styled.div`
 	height: 8rem;
@@ -12,6 +14,10 @@ const HeaderStyles = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	background: var(--gray);
+
+	.btns {
+		display: flex;
+	}
 `;
 
 const LogoStyles = styled.h1`
@@ -45,15 +51,19 @@ function Header() {
 			</LogoStyles>
 			<Nav />
 			{user && (
-				<>
+				<div className="btns">
+					<ButtonStyles>
+						<CartButton />
+					</ButtonStyles>
 					<ButtonStyles>
 						<SignOut />
 					</ButtonStyles>
-				</>
+					<Cart />
+				</div>
 			)}
 			{!user && (
 				<Link href="/signin">
-					<ButtonStyles>Sign in</ButtonStyles>
+					<ButtonStyles className="uppercase">Sign in</ButtonStyles>
 				</Link>
 			)}
 		</HeaderStyles>

@@ -15,7 +15,7 @@ function SignOut() {
 	});
 
 	return (
-		<button type="button" onClick={signout}>
+		<button type="button" onClick={signout} className="uppercase">
 			Signout
 		</button>
 	);

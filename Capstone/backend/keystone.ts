@@ -4,6 +4,7 @@ import { Product } from "./schemas/Product";
 import { insertSeedData } from './seed-data';
 import { withItemData, statelessSessions } from "@keystone-next/keystone/session";
 import { createAuth } from "@keystone-next/auth";
+import { sendPasswordResetEmail } from './lib/mail';
 import 'dotenv/config';
 
 const databaseURL =
@@ -20,8 +21,17 @@ const { withAuth } = createAuth({
   secretField: 'password',
   initFirstItem: {
     fields: ['name', 'email', 'password'],
+  },
+
+
+  //  In order for password reset to show up in GraphQL playground, this line of code need to be here. Just console log the (args) on initial setup
+  passwordResetLink: {
+  async sendToken(args) {
+    console.log(args);
+    sendPasswordResetEmail(args.token, args.identity)
   }
-});
+}});
+
 
 
 
@@ -45,6 +55,8 @@ config({
     },
     // TODO: Add data seeding here
   },
+
+
   lists: createSchema({
     // Schema items go in here
     User, Product

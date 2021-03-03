@@ -13,7 +13,7 @@ const NavStyles = styled.div`
 	max-width: 500px;
 	min-width: 300px;
 
-	@media (max-width: 700px) {
+	@media (max-width: 740px) {
 		display: none;
 	}
 `;
