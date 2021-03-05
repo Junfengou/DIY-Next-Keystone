@@ -38,7 +38,6 @@ const LogoStyles = styled.h1`
 
 function Header() {
 	const user = useUser();
-	console.log(user);
 
 	return (
 		<HeaderStyles>

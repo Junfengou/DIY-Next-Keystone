@@ -4,9 +4,26 @@ export const CURRENT_USER_QUERY = gql`
 	query {
 		authenticatedItem {
 			... on User {
+				id
+				name
 				username
 				email
-				name
+				driverLic
+				address
+				city
+				state
+				zipcode
+				phone
+				driverLic
+				cart {
+					id
+					quantity
+					product {
+						id
+						unitSize
+						price
+					}
+				}
 			}
 		}
 	}

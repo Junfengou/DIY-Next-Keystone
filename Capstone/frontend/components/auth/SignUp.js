@@ -116,7 +116,7 @@ const SIGNUP_MUTATION = gql`
 		$city: String!
 		$state: String!
 		$zipcode: Int
-		$phone: Int
+		$phone: String!
 		$driverLic: String!
 	) {
 		createUser(
@@ -253,7 +253,7 @@ function SignUp() {
 
 						<label>Phone</label>
 						<input
-							type="number"
+							type="text"
 							name="phone"
 							value={Number(input.phone).toString()}
 							placeholder="(XXX) XXX-XXXX"

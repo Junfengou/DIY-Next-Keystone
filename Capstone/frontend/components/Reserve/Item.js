@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import AddItem from "../Cart/AddItem";
 
 const ItemStyles = styled.div`
 	border: solid var(--orange);
@@ -53,7 +54,7 @@ const ItemStyles = styled.div`
 
 function Item(item) {
 	console.log(item);
-	const { options, price, total, unitSize } = item.item;
+	const { id, options, price, total, unitSize } = item.item;
 	return (
 		<>
 			<ItemStyles>
@@ -63,7 +64,7 @@ function Item(item) {
 						<p>${price}</p>
 					</div>
 					<p>Features: {options}</p>
-					<button>Reserve</button>
+					<AddItem id={id} />
 				</div>
 			</ItemStyles>
 		</>

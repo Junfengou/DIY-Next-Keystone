@@ -9,7 +9,6 @@ const NavStyles = styled.div`
 	display: flex;
 	justify-content: space-around;
 	width: 30%;
-	margin-right: 6rem;
 	max-width: 500px;
 	min-width: 300px;
 

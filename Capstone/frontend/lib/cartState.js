@@ -11,7 +11,6 @@ function useCart() {
 
 function CartStateProvider({ children }) {
 	const [cartOpen, setCartOpen] = useState(false);
-	console.log({ cartOpen });
 
 	function toggleCart() {
 		setCartOpen(!cartOpen);

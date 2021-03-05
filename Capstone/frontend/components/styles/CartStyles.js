@@ -17,6 +17,8 @@ const CartStyles = styled.div`
 	z-index: 5;
 	display: grid;
 	grid-template-rows: auto 1fr auto;
+	overflow-x: hidden;
+	overflow-y: hidden;
 	${(props) => props.open && `transform: translateX(0);`};
 	header {
 		border-bottom: 5px solid var(--black);
@@ -40,7 +42,14 @@ const CartStyles = styled.div`
 		margin: 0;
 		padding: 0;
 		list-style: none;
-		overflow: scroll;
+	}
+
+	.info {
+		/* border: solid red; */
+		display: flex;
+		justify-content: space-between;
+		margin-top: 2rem;
+		/* padding: 1rem; */
 	}
 `;
 

@@ -51,6 +51,7 @@ const GlobalStyles = createGlobalStyle`
         font-size: 1.5rem;
         line-height: 2;
         overflow-x: hidden;
+        /* background: url("https://res.cloudinary.com/junworks/image/upload/v1614879762/DIY%20Garage/webb_edyckt.png") */
     }
     a {
         text-decoration: none;

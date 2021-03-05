@@ -1,10 +1,12 @@
 import { config, createSchema } from '@keystone-next/keystone/schema';
 import { User } from "./schemas/User";
+import {CartItem} from "./schemas/CartItem";
 import { Product } from "./schemas/Product";
 import { insertSeedData } from './seed-data';
 import { withItemData, statelessSessions } from "@keystone-next/keystone/session";
 import { createAuth } from "@keystone-next/auth";
 import { sendPasswordResetEmail } from './lib/mail';
+import {extendGraphqlSchema} from "./mutations/index"
 import 'dotenv/config';
 
 const databaseURL =
@@ -56,10 +58,11 @@ config({
     // TODO: Add data seeding here
   },
 
+  extendGraphqlSchema,
 
   lists: createSchema({
     // Schema items go in here
-    User, Product
+    User, Product, CartItem
   }),
   ui: {
     // TODO: change this for roles
