@@ -34,7 +34,7 @@ const Card = styled.div`
 	max-width: 1000px;
 	height: 100%;
 	display: grid;
-	justify-content: center;
+	justify-content: space-evenly;
 	align-items: center;
 	margin: 8rem;
 
@@ -50,7 +50,8 @@ const CardStyles = styled.div`
 	grid-template-areas:
 		"photo title"
 		"photo info";
-	margin-bottom: 10rem;
+
+	margin-top: 5rem;
 
 	span {
 		color: var(--orange);
@@ -121,7 +122,8 @@ const CardStylesReverse = styled.div`
 	grid-template-areas:
 		"title photo"
 		"info photo";
-	margin-bottom: 10rem;
+
+	margin-top: 5rem;
 
 	span {
 		color: var(--orange);

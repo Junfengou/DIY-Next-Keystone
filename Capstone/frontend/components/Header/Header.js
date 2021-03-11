@@ -11,9 +11,11 @@ import Cart from "../Cart/Cart";
 const HeaderStyles = styled.div`
 	height: 8rem;
 	display: flex;
+	width: 100%;
 	align-items: center;
 	justify-content: space-between;
 	background: var(--gray);
+	position: fixed;
 
 	.btns {
 		display: flex;
@@ -36,36 +38,42 @@ const LogoStyles = styled.h1`
 	}
 `;
 
+const NavStyles = styled.nav`
+	position: relative;
+`;
+
 function Header() {
 	const user = useUser();
 
 	return (
-		<HeaderStyles>
-			<LogoStyles>
-				<Link href="/">
-					<h1>
-						<span>DIY</span> Storage
-					</h1>
-				</Link>
-			</LogoStyles>
-			<Nav />
-			{user && (
-				<div className="btns">
-					<ButtonStyles>
-						<CartButton />
-					</ButtonStyles>
-					<ButtonStyles>
-						<SignOut />
-					</ButtonStyles>
-					<Cart />
-				</div>
-			)}
-			{!user && (
-				<Link href="/signin">
-					<ButtonStyles className="uppercase">Sign in</ButtonStyles>
-				</Link>
-			)}
-		</HeaderStyles>
+		<NavStyles>
+			<HeaderStyles>
+				<LogoStyles>
+					<Link href="/">
+						<h1>
+							<span>DIY</span> Storage
+						</h1>
+					</Link>
+				</LogoStyles>
+				<Nav />
+				{user && (
+					<div className="btns">
+						<ButtonStyles>
+							<CartButton />
+						</ButtonStyles>
+						<ButtonStyles>
+							<SignOut />
+						</ButtonStyles>
+						<Cart />
+					</div>
+				)}
+				{!user && (
+					<Link href="/signin">
+						<ButtonStyles className="uppercase">Sign in</ButtonStyles>
+					</Link>
+				)}
+			</HeaderStyles>
+		</NavStyles>
 	);
 }
 

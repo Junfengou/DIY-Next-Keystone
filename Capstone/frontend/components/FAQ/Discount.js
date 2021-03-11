@@ -10,6 +10,7 @@ const DiscountStyles = styled.div`
 	align-items: center;
 
 	.reserve {
+		margin-top: 12rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -31,6 +32,7 @@ const DiscountStyles = styled.div`
 		width: 80rem;
 		justify-content: space-between;
 		align-items: center;
+		margin-top: 5rem;
 	}
 
 	.size {

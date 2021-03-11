@@ -19,7 +19,7 @@ const ALL_PRODUCT_QUERY = gql`
 `;
 
 const StorageUnitStyles = styled.div`
-	height: 70em;
+	height: 80em;
 	display: flex;
 	justify-content: center;
 	align-items: center;

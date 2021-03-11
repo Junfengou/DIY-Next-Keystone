@@ -1,13 +1,12 @@
-import React from 'react'
-import Products from '../components/Reserve/Products';
-
+import React from "react";
+import Products from "../components/Reserve/Products";
 
 function reserve() {
-    return (
-        <div>
-            <Products />
-        </div>
-    )
+	return (
+		<>
+			<Products />
+		</>
+	);
 }
 
-export default reserve
+export default reserve;
